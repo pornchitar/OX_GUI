@@ -70,24 +70,59 @@ public class OXGameUI extends javax.swing.JFrame {
 
         btnTable3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnTable3.setText("-");
+        btnTable3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTable3ActionPerformed(evt);
+            }
+        });
 
         btnTable4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnTable4.setText("-");
+        btnTable4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTable4ActionPerformed(evt);
+            }
+        });
 
         btnTable5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnTable5.setText("-");
+        btnTable5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTable5ActionPerformed(evt);
+            }
+        });
 
         btnTable6.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnTable6.setText("-");
+        btnTable6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTable6ActionPerformed(evt);
+            }
+        });
 
         btnTable7.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnTable7.setText("-");
+        btnTable7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTable7ActionPerformed(evt);
+            }
+        });
 
         btnTable8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnTable8.setText("-");
+        btnTable8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTable8ActionPerformed(evt);
+            }
+        });
 
         btnTable9.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnTable9.setText("-");
+        btnTable9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTable9ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -187,6 +222,7 @@ public class OXGameUI extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 204, 255));
 
         txtMessage.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtMessage.setText("Welcome to OX Game");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -240,12 +276,64 @@ public class OXGameUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void btnTable1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable1ActionPerformed
-        // TODO add your handling code here:
+        row = 1;
+        col = 1;
+        process();
     }//GEN-LAST:event_btnTable1ActionPerformed
 
+    private void process() {
+        board.setRowCol(row, col);
+        showBoard();
+        showTurn();
+    }
+
     private void btnTable2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable2ActionPerformed
-        // TODO add your handling code here:
+       row = 1;
+        col = 2;
+        process(); 
     }//GEN-LAST:event_btnTable2ActionPerformed
+
+    private void btnTable3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable3ActionPerformed
+        row = 1;
+        col = 3;
+        process(); 
+    }//GEN-LAST:event_btnTable3ActionPerformed
+
+    private void btnTable4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable4ActionPerformed
+        row = 2;
+        col = 1;
+        process(); 
+    }//GEN-LAST:event_btnTable4ActionPerformed
+
+    private void btnTable5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable5ActionPerformed
+        row = 2;
+        col = 2;
+        process(); 
+    }//GEN-LAST:event_btnTable5ActionPerformed
+
+    private void btnTable6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable6ActionPerformed
+        row = 2;
+        col = 3;
+        process(); 
+    }//GEN-LAST:event_btnTable6ActionPerformed
+
+    private void btnTable7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable7ActionPerformed
+        row = 3;
+        col = 1;
+        process(); 
+    }//GEN-LAST:event_btnTable7ActionPerformed
+
+    private void btnTable8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable8ActionPerformed
+        row = 3;
+        col = 2;
+        process(); 
+    }//GEN-LAST:event_btnTable8ActionPerformed
+
+    private void btnTable9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable9ActionPerformed
+        row = 3;
+        col = 3;
+        process(); 
+    }//GEN-LAST:event_btnTable9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,5 +413,9 @@ public class OXGameUI extends javax.swing.JFrame {
         btnTable7.setText(table[2][0]+"");
         btnTable8.setText(table[2][1]+"");
         btnTable9.setText(table[2][2]+"");
+    }
+
+    private void showTurn() {
+        txtMessage.setText("Turn "+board.getCurrentPlayer().getSymbol());
     }
 }
