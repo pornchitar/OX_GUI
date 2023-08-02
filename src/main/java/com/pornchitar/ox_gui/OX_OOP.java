@@ -8,7 +8,7 @@ package com.pornchitar.ox_gui;
  *
  * @author ASUS
  */
-public class OX_GUI {
+public class OX_OOP {
 
     public static void main(String[] args) {
         Game game = new Game();

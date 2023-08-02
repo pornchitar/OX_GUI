@@ -19,7 +19,7 @@ public class OXGameUI extends javax.swing.JFrame {
         this.x = new Player('X');
         showWelcome();
         newBoard();
-        showBoard();
+        showTable();
     }
 
     /**
@@ -283,8 +283,20 @@ public class OXGameUI extends javax.swing.JFrame {
 
     private void process() {
         board.setRowCol(row, col);
-        showBoard();
+        showTable();
         showTurn();
+        if(isFinish()) {
+                showTable();
+                showResult();
+//                showStat();
+            }
+    }
+    
+    private boolean isFinish() {
+        if(board.isDraw()|| board.isWin()) {
+            return true;
+        }
+        return false;
     }
 
     private void btnTable2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable2ActionPerformed
@@ -402,7 +414,7 @@ public class OXGameUI extends javax.swing.JFrame {
         board = new Board(o, x);
     }
 
-    private void showBoard() {
+    private void showTable() {
         char[][] table = board.getTable();
         btnTable1.setText(table[0][0]+"");
         btnTable2.setText(table[0][1]+"");
@@ -417,5 +429,13 @@ public class OXGameUI extends javax.swing.JFrame {
 
     private void showTurn() {
         txtMessage.setText("Turn "+board.getCurrentPlayer().getSymbol());
+    }
+
+    private void showResult() {
+        if(board.isDraw()) {
+            txtMessage.setText("Draw!!!");
+        } else if(board.isWin()) {
+            txtMessage.setText(board.getCurrentPlayer().getSymbol() + " Win");
+        }
     }
 }
