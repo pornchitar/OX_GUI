@@ -18,9 +18,10 @@ public class OXGameUI extends javax.swing.JFrame {
         this.o = new Player('O');
         this.x = new Player('X');
         showWelcome();
-        newBoard();
-        showTable();
+        newGame();
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -272,7 +273,7 @@ public class OXGameUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
+        newGame();
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void btnTable1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable1ActionPerformed
@@ -437,5 +438,11 @@ public class OXGameUI extends javax.swing.JFrame {
         } else if(board.isWin()) {
             txtMessage.setText(board.getCurrentPlayer().getSymbol() + " Win");
         }
+    }
+    
+    private void newGame() {
+        newBoard();
+        showTable();
+        showTurn();
     }
 }
