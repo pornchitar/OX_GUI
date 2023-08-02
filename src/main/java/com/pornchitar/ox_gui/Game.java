@@ -12,97 +12,65 @@ import java.util.Scanner;
  */
 public class Game {
 
-    private Player player1, player2;
-    Table table = new Table(player1, player2);
-    String[][] t = table.getTable();
+    private Player o;
+    private Player x;
+    private int row;
+    private int col;
+    private Board board;
+    Scanner sc = new Scanner(System.in);
 
     public Game() {
-        player1 = new Player("X", 0, 0, 0);
-        player2 = new Player("O", 0, 0, 0);
-
+        this.o = new Player('O');
+        this.x = new Player('X');
     }
-
-    public void play() {
-        boolean isFinish = false;
-        printWelcome();
-        newGame();
-        while (!isFinish) {
-            printTable();
-            printTurn();
-            inputRowCol();
-            if (table.checkWin()) {
-                printTable();
-                printWinner();
-                printPlayers();
-                if (table.endGame()) {
-                       isFinish = true;
+    public void newBoard() {
+        this.board = new Board(o, x);
+    }
     
-                } else {
-                     t = table.getTable();
-                    isFinish = false;
-
-                }
-//                isFinish = true;
-            }
-            if (table.checkDraw()) {
-                printTable();
-                printDraw();
-                printPlayers();
-                if (table.endGame()) {
-//                table.reset();
-                } else {
-                    isFinish = false;
-
-                }
-//                isFinish = true;
-            }
-            table.switchPlayer();
-        }
+    public void showWelcome() {
+        System.out.println("Welcome to OX Game");
     }
-
-    private void printWelcome() {
-        System.out.println("Welcome to OX GAME");
+    public void showTurn() {
+        Player player = board.getCurrentPlayer();
+        System.out.println("Turn " + player.getSymbol());
     }
-
-    private void printTable() {
-        String[][] t = table.getTable();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(t[i][j] + " ");
-
+    public void showTable() {
+        char[][] table = this.board.getTable();
+        for (int r = 0; r < table.length; r++) {
+            for (int c = 0; c < table[r].length; c++) {
+                System.out.print(table[r][c]);
             }
             System.out.println("");
-
+        }
+    }
+    public void inputRowCol() {
+        while(true) {
+            System.out.print("Please input row, col:");
+            row = sc.nextInt();
+            col = sc.nextInt();
+            if(board.setRowCol(row, col)) {
+                return;
+            }
+        }
+    }
+    
+    public boolean isFinish() {
+        if(board.isDraw()|| board.isWin()) {
+            return true;
+        }
+        return false;
+    }
+    public void showStat() {
+        System.out.println(o);
+        System.out.println(x);
+    }
+    public void showResult() {
+        if(board.isDraw()) {
+            System.out.println("Draw!!!");
+        } else if(board.isWin()) {
+            System.out.println(board.getCurrentPlayer().getSymbol() + " Win");
         }
     }
 
-    private void printTurn() {
-        System.out.println(table.getCurrentPlayer().getSymbol() + " Turn");
-    }
-
-    private void inputRowCol() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Please Input row&Col :");
-        int row = sc.nextInt();
-        int col = sc.nextInt();
-        table.setRowCol(row, col);
-    }
-
-    private void newGame() {
-        table = new Table(player1, player2);
-    }
-
-    private void printWinner() {
-        System.out.println(table.getCurrentPlayer().getSymbol() + " Win!!!");
-    }
-
-    private void printDraw() {
-        System.out.println(" Draw!!!");
-    }
-
-    private void printPlayers() {
-        System.out.println(player1);
-        System.out.println(player2);
-    }
 
 }

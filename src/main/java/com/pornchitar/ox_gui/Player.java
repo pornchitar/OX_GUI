@@ -9,48 +9,52 @@ package com.pornchitar.ox_gui;
  * @author ASUS
  */
 public class Player {
-    private String symbol;
-    private int winCount, loseCount, drawCount;
+    private char symbol;
+    private int win;
+    private int loss;
+    private int draw;
 
-    public Player(String symbol, int winCount, int loseCount, int drawCount) {
+    public Player(char symbol) {
         this.symbol = symbol;
-        this.winCount = winCount;
-        this.loseCount = loseCount;
-        this.drawCount = drawCount;
     }
 
-    public String getSymbol() {
+    public char getSymbol() {
         return symbol;
     }
 
-    public int getWinCount() {
-        return winCount;
+    public void setSymbol(char symbol) {
+        this.symbol = symbol;
     }
 
-    public int getLoseCount() {
-        return loseCount;
+    public int getWin() {
+        return win;
     }
 
-    public int getDrawCount() {
-        return drawCount;
+    public void win() {
+        this.win++;
     }
-    
-    public void win(){
-        winCount++;
+
+    public int getLoss() {
+        return loss;
     }
-    
-    public void lose(){
-        loseCount++;
+
+    public void loss() {
+        this.loss++;
     }
-    
-    public void draw(){
-        drawCount++;
+
+    public int getDraw() {
+        return draw;
+    }
+
+    public void draw() {
+        this.draw++;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "symbol=" + symbol + ", winCount=" + winCount + ", loseCount=" + loseCount + ", drawCount=" + drawCount + '}';
+        return "Player{" + "symbol=" + symbol + ", win=" + win + ", loss=" + loss + ", draw=" + draw + '}';
     }
+
     
     
 }

@@ -81,7 +81,8 @@ public class HelloMe extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHelloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelloActionPerformed
-        txtHello.setText("Hello Me");
+        String name = edtName.getText();
+        txtHello.setText("Hello "+name);
     }//GEN-LAST:event_btnHelloActionPerformed
 
     /**
