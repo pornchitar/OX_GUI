@@ -43,9 +43,15 @@ public class OXGameUI extends javax.swing.JFrame {
         btnTable8 = new javax.swing.JButton();
         btnTable9 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        txtPlayerX = new javax.swing.JLabel();
+        txtPlayerO = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
+        txtXWin = new javax.swing.JLabel();
+        txtXLose = new javax.swing.JLabel();
+        txtXDraw = new javax.swing.JLabel();
+        txtOWin = new javax.swing.JLabel();
+        txtOLose = new javax.swing.JLabel();
+        txtODraw = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         txtMessage = new javax.swing.JLabel();
 
@@ -170,16 +176,16 @@ public class OXGameUI extends javax.swing.JFrame {
                     .addComponent(btnTable7)
                     .addComponent(btnTable9)
                     .addComponent(btnTable8))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Player O");
+        txtPlayerX.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtPlayerX.setText("Player X");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setText("Player X");
+        txtPlayerO.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtPlayerO.setText("Player O");
 
         jButton10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton10.setText("New Game");
@@ -189,35 +195,75 @@ public class OXGameUI extends javax.swing.JFrame {
             }
         });
 
+        txtXWin.setBackground(new java.awt.Color(102, 255, 153));
+        txtXWin.setText("Win : 0");
+        txtXWin.setOpaque(true);
+
+        txtXLose.setBackground(new java.awt.Color(255, 102, 102));
+        txtXLose.setText("Lose : 0");
+        txtXLose.setOpaque(true);
+
+        txtXDraw.setText("Draw : 0");
+
+        txtOWin.setBackground(new java.awt.Color(102, 255, 153));
+        txtOWin.setText("Win : 0");
+        txtOWin.setOpaque(true);
+
+        txtOLose.setBackground(new java.awt.Color(255, 102, 102));
+        txtOLose.setText("Lose : 0");
+        txtOLose.setOpaque(true);
+
+        txtODraw.setText("Draw : 0");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtPlayerO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(50, 50, 50))
+                    .addComponent(txtPlayerX, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(txtOWin, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtODraw, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtOLose, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(txtXWin, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtXDraw, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtXLose, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addContainerGap()
+                .addComponent(txtPlayerX)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtXWin)
+                    .addComponent(txtXLose)
+                    .addComponent(txtXDraw))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtPlayerO)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtOWin)
+                    .addComponent(txtOLose)
+                    .addComponent(txtODraw))
+                .addGap(25, 25, 25)
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(34, 34, 34)
-                    .addComponent(jLabel2)
-                    .addContainerGap(167, Short.MAX_VALUE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 204, 255));
@@ -289,7 +335,7 @@ public class OXGameUI extends javax.swing.JFrame {
         if(isFinish()) {
                 showTable();
                 showResult();
-//                showStat();
+                showStat();
             }
     }
     
@@ -394,12 +440,18 @@ public class OXGameUI extends javax.swing.JFrame {
     private javax.swing.JButton btnTable8;
     private javax.swing.JButton btnTable9;
     private javax.swing.JButton jButton10;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel txtMessage;
+    private javax.swing.JLabel txtODraw;
+    private javax.swing.JLabel txtOLose;
+    private javax.swing.JLabel txtOWin;
+    private javax.swing.JLabel txtPlayerO;
+    private javax.swing.JLabel txtPlayerX;
+    private javax.swing.JLabel txtXDraw;
+    private javax.swing.JLabel txtXLose;
+    private javax.swing.JLabel txtXWin;
     // End of variables declaration//GEN-END:variables
     private Player o;
     private Player x;
@@ -444,5 +496,14 @@ public class OXGameUI extends javax.swing.JFrame {
         newBoard();
         showTable();
         showTurn();
+    }
+
+    private void showStat() {
+        txtOWin.setText("Win: "+o.getWin());
+        txtODraw.setText("Draw: "+o.getDraw());
+        txtOLose.setText("Lose: "+o.getLoss());
+        txtXWin.setText("Win: "+x.getWin());
+        txtXDraw.setText("Draw: "+x.getDraw());
+        txtXLose.setText("Lose: "+x.getLoss());
     }
 }
