@@ -4,6 +4,7 @@
  */
 package com.pornchitar.ox_gui;
 
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,12 +12,12 @@ import java.util.logging.Logger;
  *
  * @author ASUS
  */
-public class Friend {
+public class Friend implements Serializable{
     private int id;
     private String name;
     private int age;
     private String tel;
-    private static int lastID;
+    private static int lastID = 1;
 
     public Friend(String name, int age, String tel) {
         this.id = lastID++;
