@@ -4,11 +4,13 @@
  */
 package com.pornchitar.ox_gui;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ASUS
  */
-public class Player {
+public class Player implements Serializable{
     private char symbol;
     private int win;
     private int loss;
