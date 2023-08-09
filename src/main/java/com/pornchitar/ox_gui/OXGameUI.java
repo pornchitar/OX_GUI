@@ -4,6 +4,14 @@
  */
 package com.pornchitar.ox_gui;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ASUS
@@ -19,9 +27,36 @@ public class OXGameUI extends javax.swing.JFrame {
         this.x = new Player('X');
         showWelcome();
         newGame();
+        showStat();
     }
 
+    public void load(){
+        FileInputStream fis = null;
+        try {
+            File file = new File("player.dat");
+            fis = new FileInputStream(file);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Player o = (Player) ois.readObject();
+            Player x = (Player) ois.readObject();
+            ois.close();
+            fis.close();
+        } catch (Exception ex) {
+            System.out.println("Load Error!!!");
+        } finally {
+            try {
+                if(fis!=null){
+                    fis.close();
+                }
+                
+            } catch (IOException ex) {
+                Logger.getLogger(OXGameUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
     
+    public void save(){
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
