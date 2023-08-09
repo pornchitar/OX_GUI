@@ -71,7 +71,7 @@ public class Friend {
         try {
             Friend f1 = new Friend( "Pom", 70 , "01234567");
             f1.setAge(-1);
-            System.out.println(f1);
+            System.out.println(f1.toString());
         } catch (Exception ex) {
             System.out.println("Error");
         }
